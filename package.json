@@ -1,0 +1,25 @@
+{
+  "name": "loadbalancer-appication",
+  "version": "1.0.0",
+  "description": "an test app to torture k8s",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "author": "j12t",
+  "license": "ISC",
+  "dependencies": {
+    "bignumber.js": "^9.1.2",
+    "calculate-pi": "^0.1.2",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "lzma-native": "^8.0.6",
+    "nodemon": "^3.1.0",
+    "tempfile": "^5.0.0"
+  }
+}
