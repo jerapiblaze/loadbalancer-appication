@@ -18,8 +18,6 @@ ENV DUMMYFILES_LARGE_PATH = "./app_data/dummy_files/large"
 ENV DUMMYFILES_LARGE_SIZE = 5242880
 ENV DUMMYFILES_LARGE_COUNT = 1000
 
-RUN ls app/
-
 RUN npm run prep
 
 CMD npm run prod

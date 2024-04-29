@@ -3,6 +3,7 @@ import express from 'express';
 import filesConfig from '../../configs/prepConfig.js'
 import randomNumber from '../../utils/randomnumber.js';
 import fs from 'fs'
+import path from 'path'
 
 export default () => {
     const router = express.Router()
@@ -24,7 +25,7 @@ function GET() {
         let files = []
         for (let i = 0; i < n; i++) {
             let t = randomNumber(0, filesConfig.LARGE.n_files)
-            let content = fs.readFileSync(`${filesConfig.LARGE.path}/${t}.txt`).toString()
+            let content = fs.readFileSync(path.join(filesConfig.LARGE.path,`${t}.txt`)).toString()
             files.push({
                 file: t,
                 content: content

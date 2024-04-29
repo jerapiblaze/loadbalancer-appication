@@ -6,6 +6,7 @@ import os from 'os';
 import tempfile from 'tempfile';
 import randomNumber from '../../utils/randomnumber.js';
 import filesConfig from '../../configs/prepConfig.js'
+import path from 'path'
 
 export default () => {
     const router = express.Router()
@@ -25,7 +26,7 @@ function GET() {
         let data_array = []
         for (let i = 0; i < n; i++) {
             let tt = randomNumber(0, filesConfig.LARGE.n_files)
-            let fileData = fs.readFileSync(`${filesConfig.LARGE.path}/${tt}.txt`)
+            let fileData = fs.readFileSync(path.join(filesConfig.LARGE.path,`${tt}.txt`))
             let compressedData = await lzma.compress(fileData, {
                 threads: t,
                 check: lzma.CHECK_SHA256,
