@@ -7,10 +7,10 @@ services:
     environment:
       - SERVER_PORT=8080
       - SERVER_DEBUG=0
-      - DUMMYFILES_SMALL_PATH="./app_data/dummy_files/small"
+      - DUMMYFILES_SMALL_PATH=./app_data/dummy_files/small
       - DUMMYFILES_SMALL_SIZE=1024
       - DUMMYFILES_SMALL_COUNT=10000
-      - DUMMYFILES_LARGE_PATH="./app_data/dummy_files/large"
+      - DUMMYFILES_LARGE_PATH=./app_data/dummy_files/large
       - DUMMYFILES_LARGE_SIZE=5242880
       - DUMMYFILES_LARGE_COUNT=1000
     ports:

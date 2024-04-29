@@ -11,13 +11,11 @@ RUN npm install
 
 ENV SERVER_PORT = 8080
 ENV SERVER_DEBUG = 0
-ENV DUMMYFILES_SMALL_PATH = "./app_data/dummy_files/small"
+ENV DUMMYFILES_SMALL_PATH = ./app_data/dummy_files/small
 ENV DUMMYFILES_SMALL_SIZE = 1024
 ENV DUMMYFILES_SMALL_COUNT = 10000
-ENV DUMMYFILES_LARGE_PATH = "./app_data/dummy_files/large"
+ENV DUMMYFILES_LARGE_PATH = ./app_data/dummy_files/large
 ENV DUMMYFILES_LARGE_SIZE = 5242880
 ENV DUMMYFILES_LARGE_COUNT = 1000
 
-RUN npm run prep
-
-CMD npm run prod
+CMD npm run container

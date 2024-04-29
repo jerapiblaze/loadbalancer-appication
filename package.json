@@ -10,7 +10,8 @@
     "start": "node server.js",
     "prep": "node prep.js",
     "prod_pm2": "pm2 start server.js",
-    "prod": "node server.js"
+    "prod": "node server.js",
+    "container": "node prep.js && node server.js"
   },
   "author": "j12t",
   "license": "ISC",
