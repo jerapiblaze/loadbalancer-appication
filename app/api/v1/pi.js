@@ -1,10 +1,9 @@
-import { CalculatePi } from 'calculate-pi';
 import express from 'express';
 import BigNumber from "bignumber.js";
 
 export default () => {
     const router = express.Router()
-    router.get("/", GET()) // /api/v1/pi?n=
+    router.get("/", GET())
     return router
 }
 

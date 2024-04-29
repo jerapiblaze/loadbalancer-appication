@@ -1,8 +1,6 @@
-import { CalculatePi } from 'calculate-pi';
 import express from 'express';
-import lzma, { LZMA } from 'lzma-native';
-import fs, { ReadStream } from 'fs';
-import os from 'os';
+import lzma from 'lzma-native';
+import fs from 'fs';
 import tempfile from 'tempfile';
 import randomNumber from '../../utils/randomnumber.js';
 import filesConfig from '../../configs/prepConfig.js'
@@ -10,7 +8,7 @@ import path from 'path'
 
 export default () => {
     const router = express.Router()
-    router.get("/", GET()) // /api/v1/pi?n=
+    router.get("/", GET())
     return router
 }
 
@@ -20,6 +18,10 @@ function GET() {
         const n = req.query.n
         if (isNaN(t) || isNaN(n)){
             res.status(400).send()
+            return
+        }
+        if (n >= filesConfig.LARGE.n_files){
+            res.status(400).send("overload")
             return
         }
         const tempfilepath = tempfile({extension:"xz"})

@@ -1,9 +1,8 @@
-import { CalculatePi } from 'calculate-pi';
 import express from 'express';
 
 export default () => {
     const router = express.Router()
-    router.get("/", GET()) // /api/v1/pi?n=
+    router.get("/", GET())
     return router
 }
 
@@ -12,9 +11,11 @@ function GET() {
         let n = req.query.n
         if (isNaN(n)){
             res.status(400).send()
+            return
         }
-        if (n > 25){
+        if (n >= 25){
             res.status(400).send("overload")
+            return
         }
         n = n-1
         let ans = [1,0]

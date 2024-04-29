@@ -1,4 +1,3 @@
-import { CalculatePi } from 'calculate-pi';
 import express from 'express';
 import filesConfig from '../../configs/prepConfig.js'
 import randomNumber from '../../utils/randomnumber.js';
@@ -7,7 +6,7 @@ import path from 'path'
 
 export default () => {
     const router = express.Router()
-    router.get("/", GET()) // /api/v1/pi?n=
+    router.get("/", GET())
     return router
 }
 
@@ -19,7 +18,7 @@ function GET() {
             return
         }
         if (n > filesConfig.LARGE.n_files){
-            res.status(400).send()
+            res.status(400).send("overload")
             return
         }
         let files = []
