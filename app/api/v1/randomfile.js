@@ -17,7 +17,7 @@ function GET() {
             res.status(400).send()
             return
         }
-        if (n > filesConfig.LARGE.n_files) {
+        if (Number(n) >= Number(filesConfig.SMALL.n_files)) {
             res.status(400).send("overload")
             return
         }
