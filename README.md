@@ -6,25 +6,31 @@ GET /
 -> helloworld
 
 GET /pi?n=(int)
--> calculate pi number
+-> (CPU drain) calculate pi number with `n` precision
 
 GET /recurse?n=(int)
--> recursive calculate something
+-> (MEM drain) recursive `n` times to calculate something
 
 GET /randomfile?n=(int)
--> random get n files of size 1MB
+-> (STO_IO drain) random get `n` files of size 1MB
 
 GET /bigfile?n=(int)
--> random get n file of size 5MB
+-> (STO_IO/NET_IO drain) random get `n` file of size 5MB
 
 GET /compress?n=(int)&t=(int)
--> compress n big file files with t thread
+-> (COMBO) compress `n` big file files with `t` thread
 
 ## DEPLOY
 
+Traditional deployments:
 ```bash
 # Run once
 npm run prep
 # DEV
 npm run dev
+```
+
+Container deployments:
+```bash
+docker-compose up
 ```
