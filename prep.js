@@ -1,5 +1,6 @@
 import fs from 'fs'
 import config from './app/configs/prepConfig.js'
+import path from 'path'
 
 function GenFiles(config){
     console.log(`Generating dummy files: size=${config.size} n_files=${config.n_files} path=${config.path}`)
@@ -10,7 +11,7 @@ function GenFiles(config){
     }
     let str_data = data.join("")
     for (let i = 0; i < config.n_files; i++){
-        fs.writeFileSync(`${config.path}/${i}.txt`, str_data)
+        fs.writeFileSync(path.join(config.path,`${i}.txt`), str_data)
     }
 }
 
