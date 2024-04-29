@@ -9,7 +9,8 @@
     "dev": "nodemon server.js",
     "start": "node server.js",
     "prep": "node prep.js",
-    "prod": "pm2 start server.js"
+    "prod_pm2": "pm2 start server.js",
+    "prod": "node server.js"
   },
   "author": "j12t",
   "license": "ISC",
