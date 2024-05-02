@@ -22,6 +22,10 @@ async function Main() {
     app.set('query parser',
         (str) => qs.parse(str, { /* custom options */ }))
 
+    app.get("/", (req, res) => {
+        res.status(200).send("Hello world!")
+    })
+
     api(app)
 }
 
