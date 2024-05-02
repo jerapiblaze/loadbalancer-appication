@@ -15,5 +15,6 @@ function GenFiles(config){
     }
 }
 
+console.log("==== Loadbalancer-Appication: Dummy file generator ====");
 GenFiles(config.SMALL);
 GenFiles(config.LARGE);

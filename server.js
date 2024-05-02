@@ -29,4 +29,5 @@ async function Main() {
     api(app)
 }
 
+console.log("==== Loadbalancer-Appication: MAIN ====");
 Main()
