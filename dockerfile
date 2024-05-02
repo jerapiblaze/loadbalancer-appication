@@ -21,6 +21,10 @@ RUN echo '\
 [[outputs.prometheus_client]]\n\
     listen = ":9126"\n\
     path = "/metrics"\n\
+[[outputs.file]]\n\
+    files = ["/tmp/telegraf_stats.txt"]\n\
+    data_format = "wavefront"\n\
+    rotation_max_size = "5MB"\n\
 [[inputs.mem]]\n\
 [[inputs.cpu]]\n\
 [[inputs.net]]\n\
