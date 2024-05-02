@@ -34,6 +34,7 @@ RUN rm -f /tmp/telegraf.deb
 EXPOSE 8125/udp
 EXPOSE 8092/udp
 EXPOSE 8094/tcp
+EXPOSE 9126/tcp
 # RUN service telegraf restart
 
 # Actual build
