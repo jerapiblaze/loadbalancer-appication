@@ -16,10 +16,16 @@ RUN echo '\
     precision = ""\n\
     hostname = ""\n\
     omit_hostname = true\n\
-[[outputs.prometheus.client]]\n\
+    logtarget = "file"\n\
+    logfile = "/tmp/telegraf.log"\n\
+[[outputs.prometheus_client]]\n\
     listen = ":9126"\n\
     path = "/metrics"\n\
-    ' > /etc/telegraf/telegraf.conf
+[[inputs.mem]]\n\
+[[inputs.cpu]]\n\
+[[inputs.net]]\n\
+[[inputs.diskio]]\n\
+' > /etc/telegraf/telegraf.conf
 RUN rm -f /tmp/telegraf.deb
 EXPOSE 8125/udp
 EXPOSE 8092/udp
