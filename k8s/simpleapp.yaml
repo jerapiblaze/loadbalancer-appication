@@ -17,3 +17,15 @@ spec:
         image: jerapiblannett/loadbalancer-app-709c7
         ports:
         - containerPort: 8080
+        resources:
+          request:
+            ephemeral-storage: "7G"
+          limits:
+            ephemeral-storage: "10G"
+        volumeMounts:
+        - name: ephemeral
+          mountPath: "/tmp"
+      volumes:
+      - name: ephemeral
+        emptyDir:
+          sizeLimit: "10G"
