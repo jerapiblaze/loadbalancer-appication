@@ -1,0 +1,22 @@
+FROM node:21.5
+
+# Actual build
+## Copy code (all files except items in .dockerignore)
+WORKDIR /usr/server/loadbalancer-application
+COPY . .
+## Install node modules
+RUN npm install
+## Config server using environment variables
+ENV SERVER_PORT=8888
+ENV SERVER_DEBUG=0
+ENV DUMMYFILES_SMALL_PATH=/tmp/loadbalancer-application/dummy_files/small
+ENV DUMMYFILES_SMALL_SIZE=1024
+ENV DUMMYFILES_SMALL_COUNT=1000
+ENV DUMMYFILES_LARGE_PATH=/tmp/loadbalancer-application/dummy_files/large
+ENV DUMMYFILES_LARGE_SIZE=5242880
+ENV DUMMYFILES_LARGE_COUNT=100
+## Expose ports to outsides
+EXPOSE 8888/tcp
+EXPOSE 8888/udp
+## Start the server with telegraf
+CMD npm run container
